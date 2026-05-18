@@ -68,54 +68,54 @@ endif()
 ########
 
 SET(SOURCE_FILES
-    ${CMAKE_SOURCE_DIR}/src/access.cc
-    ${CMAKE_SOURCE_DIR}/src/command/command-graph.cc
-    ${CMAKE_SOURCE_DIR}/src/conf/conf.cc
-    ${CMAKE_SOURCE_DIR}/src/debug/cairo.cc
-    ${CMAKE_SOURCE_DIR}/src/distribution/distribution.cc
-    ${CMAKE_SOURCE_DIR}/src/driver.cc
-    ${CMAKE_SOURCE_DIR}/src/driver/device.cc
-    ${CMAKE_SOURCE_DIR}/src/driver/driver.cc
-    ${CMAKE_SOURCE_DIR}/src/driver/queue.cc
-    ${CMAKE_SOURCE_DIR}/src/file/readwrite.cc
-    ${CMAKE_SOURCE_DIR}/src/logger/logger.cc
-    ${CMAKE_SOURCE_DIR}/src/logger/metric.cc
-    ${CMAKE_SOURCE_DIR}/src/memory.cc
-    ${CMAKE_SOURCE_DIR}/src/memory/access.cc
-    ${CMAKE_SOURCE_DIR}/src/memory/access/handle/dependency-map.cc
-    ${CMAKE_SOURCE_DIR}/src/memory/coherent.cc
-    ${CMAKE_SOURCE_DIR}/src/memory/copy.cc
-    ${CMAKE_SOURCE_DIR}/src/memory/distribute.cc
-    ${CMAKE_SOURCE_DIR}/src/memory/invalidate.cc
-    ${CMAKE_SOURCE_DIR}/src/memory/register.cc
-    ${CMAKE_SOURCE_DIR}/src/power.cc
-    ${CMAKE_SOURCE_DIR}/src/runtime.cc
-    ${CMAKE_SOURCE_DIR}/src/sched.cc
-    ${CMAKE_SOURCE_DIR}/src/stats/stats.cc
-    ${CMAKE_SOURCE_DIR}/src/task.cc
-    ${CMAKE_SOURCE_DIR}/src/task/format.cc
-    ${CMAKE_SOURCE_DIR}/src/task/task-dependency-graph.cc
-    ${CMAKE_SOURCE_DIR}/src/task/task.cc
-    ${CMAKE_SOURCE_DIR}/src/thread/deque.cc
-    ${CMAKE_SOURCE_DIR}/src/thread/thread.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/access.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/command/command-graph.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/conf/conf.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/debug/cairo.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/distribution/distribution.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/driver.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/driver/device.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/driver/driver.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/driver/queue.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/file/readwrite.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/logger/logger.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/logger/metric.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/memory.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/memory/access.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/memory/access/handle/dependency-map.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/memory/coherent.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/memory/copy.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/memory/distribute.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/memory/invalidate.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/memory/register.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/power.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/runtime.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/sched.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/stats/stats.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/task.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/task/format.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/task/task-dependency-graph.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/task/task.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/thread/deque.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/thread/thread.cc
 )
 
 if (BUILD_C_API)
-    list(APPEND SOURCE_FILES ${CMAKE_SOURCE_DIR}/api/c/src/xkrt.cc)
-    include_directories(${CMAKE_SOURCE_DIR}/api/c/src)
-    include_directories(${CMAKE_SOURCE_DIR}/api/c/include)
-    install(DIRECTORY ${CMAKE_SOURCE_DIR}/api/c/include/ DESTINATION include FILES_MATCHING PATTERN "*.h")
+    list(APPEND SOURCE_FILES ${CMAKE_CURRENT_SOURCE_DIR}/api/c/src/xkrt.cc)
+    include_directories(${CMAKE_CURRENT_SOURCE_DIR}/api/c/src)
+    include_directories(${CMAKE_CURRENT_SOURCE_DIR}/api/c/include)
+    install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/api/c/include/ DESTINATION include FILES_MATCHING PATTERN "*.h")
 endif()
 
 # XKRT Lib
 add_library(${XKRT} SHARED ${SOURCE_FILES})
-set_target_properties(${XKRT} PROPERTIES BUILD_RPATH "${CMAKE_SOURCE_DIR}/lib")
+set_target_properties(${XKRT} PROPERTIES BUILD_RPATH "${CMAKE_CURRENT_SOURCE_DIR}/lib")
 set_target_properties(${XKRT} PROPERTIES INSTALL_RPATH "$ORIGIN/../lib")
 
 # Include directory
-include_directories(${CMAKE_SOURCE_DIR}/include/)
-include_directories(${CMAKE_BINARY_DIR}/include/)
-include_directories(${CMAKE_SOURCE_DIR}/src/)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/)
+include_directories(${CMAKE_CURRENT_BINARY_DIR}/include/)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/)
 
 # targets to install (lib)
 set(XKRT_TARGETS ${XKRT})
@@ -131,7 +131,7 @@ set(XKRT_TARGETS ${XKRT})
 
 add_subdirectory(opencg/)
 target_link_libraries(${XKRT} PUBLIC opencg)
-include_directories(${CMAKE_SOURCE_DIR}/opencg/include/)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/opencg/include/)
 
 # PTHREAD
 set(THREADS_PREFER_PTHREAD_FLAG ON)
@@ -300,19 +300,19 @@ endif()
 ################
 
 # Header file generated
-file(MAKE_DIRECTORY "${CMAKE_BINARY_DIR}/include/xkrt")
+file(MAKE_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/include/xkrt")
 configure_file(
-    ${CMAKE_SOURCE_DIR}/include/xkrt/support.h.in
-    ${CMAKE_BINARY_DIR}/include/xkrt/support.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/xkrt/support.h.in
+    ${CMAKE_CURRENT_BINARY_DIR}/include/xkrt/support.h
 )
 install(
-    FILES "${CMAKE_BINARY_DIR}/include/xkrt/support.h"
+    FILES "${CMAKE_CURRENT_BINARY_DIR}/include/xkrt/support.h"
     DESTINATION include/xkrt
 )
 
 # Installation - lib and include files
 install(TARGETS ${XKRT_TARGETS} LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
-install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/ DESTINATION include FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp")
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION include FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp")
 
 # Installation - cmake files
 target_include_directories(${XKRT} PUBLIC
