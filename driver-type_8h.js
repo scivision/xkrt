@@ -14,5 +14,5 @@ var driver_type_8h =
     [ "xkrt_driver_name", "driver-type_8h.html#a9aa233df023b008f340bee525fb5ea41", null ],
     [ "xkrt_driver_supported", "driver-type_8h.html#aac287ecb346e9b2a70e015dfd541f711", null ],
     [ "xkrt_driver_type_from_name", "driver-type_8h.html#ad9f3d21924cb6c0d1658170600ddd44e", null ],
-    [ "xkstatic_assert", "driver-type_8h.html#a85066a5f0103e97776b50b2b5005f313", null ]
+    [ "xkstatic_assert", "driver-type_8h.html#a3114882ec3a5b45b889f929787a35657", null ]
 ];
