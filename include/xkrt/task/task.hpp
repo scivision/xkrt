@@ -732,7 +732,7 @@ task_get_extra_size(const task_flag_bitfield_t flags)
     }
 }
 
-static constexpr task_acs_info_t *
+static inline task_acs_info_t *
 TASK_ACS_INFO(const task_t * task, const task_flag_bitfield_t flags)
 {
     assert(flags & TASK_FLAG_ACCESSES);
@@ -745,7 +745,7 @@ TASK_ACS_INFO(const task_t * task)
     return TASK_ACS_INFO(task, task->flags);
 }
 
-static constexpr task_det_info_t *
+static inline task_det_info_t *
 TASK_DET_INFO(const task_t * task, const task_flag_bitfield_t flags)
 {
     assert(flags & TASK_FLAG_DETACHABLE);
@@ -760,7 +760,7 @@ TASK_DET_INFO(const task_t * task)
     return TASK_DET_INFO(task, task->flags);
 }
 
-static constexpr task_dev_info_t *
+static inline task_dev_info_t *
 TASK_DEV_INFO(const task_t * task, const task_flag_bitfield_t flags)
 {
     assert(flags & TASK_FLAG_DEVICE);
@@ -777,7 +777,7 @@ TASK_DEV_INFO(const task_t * task)
     return TASK_DEV_INFO(task, task->flags);
 }
 
-static constexpr task_dom_info_t *
+static inline task_dom_info_t *
 TASK_DOM_INFO(const task_t * task, const task_flag_bitfield_t flags)
 {
     assert(flags & TASK_FLAG_DOMAIN);
@@ -796,7 +796,7 @@ TASK_DOM_INFO(const task_t * task)
     return TASK_DOM_INFO(task, task->flags);
 }
 
-static constexpr task_mol_info_t *
+static inline task_mol_info_t *
 TASK_MOL_INFO(const task_t * task, const task_flag_bitfield_t flags)
 {
     assert(flags & TASK_FLAG_MOLDABLE);
@@ -817,7 +817,7 @@ TASK_MOL_INFO(const task_t * task)
     return TASK_MOL_INFO(task, task->flags);
 }
 
-static constexpr task_gph_info_t *
+static inline task_gph_info_t *
 TASK_GPH_INFO(const task_t * task, const task_flag_bitfield_t flags)
 {
     assert(flags & TASK_FLAG_GRAPH);
@@ -840,7 +840,7 @@ TASK_GPH_INFO(const task_t * task)
     return TASK_GPH_INFO(task, task->flags);
 }
 
-static constexpr task_rec_info_t *
+static inline task_rec_info_t *
 TASK_REC_INFO(const task_t * task, const task_flag_bitfield_t flags)
 {
     assert(flags & TASK_FLAG_RECORD);
