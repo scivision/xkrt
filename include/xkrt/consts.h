@@ -45,7 +45,7 @@
 
 #  include <opencg/c/api.h>
 
-# ifdef __cplusplus
+# if defined(__cplusplus) || (defined(__STDC_VERSION__) && __STDC_VERSION__ >= 201112L)
 #  define xkstatic_assert(X) static_assert(X)
 # else
 #  define xkstatic_assert(X) _Static_assert(X, "")

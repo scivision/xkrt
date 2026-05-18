@@ -76,6 +76,6 @@ typedef enum    xkrt_task_flags_t
 }               xkrt_task_flags_t;
 
 typedef uint16_t xkrt_task_flag_bitfield_t;
-_Static_assert(TASK_FLAG_MAX <= (1 << 8*sizeof(xkrt_task_flag_bitfield_t)), "");
+xkstatic_assert(TASK_FLAG_MAX <= (1 << 8*sizeof(xkrt_task_flag_bitfield_t)));
 
 #endif /* __XKRT_TASK_FLAG_H__ */

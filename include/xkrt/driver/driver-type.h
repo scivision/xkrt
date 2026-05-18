@@ -55,7 +55,7 @@ typedef enum    xkrt_driver_type_t
 }               xkrt_driver_type_t;
 
 typedef uint8_t xkrt_driver_type_bitfield_t;
-_Static_assert(XKRT_DRIVER_TYPE_MAX <= sizeof(xkrt_driver_type_bitfield_t)*8, "");
+xkstatic_assert(XKRT_DRIVER_TYPE_MAX <= sizeof(xkrt_driver_type_bitfield_t)*8);
 
 /* get driver name by type */
 inline const char *
