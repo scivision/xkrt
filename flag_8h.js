@@ -15,5 +15,6 @@ var flag_8h =
       [ "TASK_FLAG_GRAPH_EXECUTE_COMMAND", "flag_8h.html#a46cf87370af170b282b31fcfb2309d8daaf15f4d0d8ceede9ad20a7da2b2d57c8", null ],
       [ "TASK_FLAG_REQUEUE", "flag_8h.html#a46cf87370af170b282b31fcfb2309d8da4a4dfbfda7d66a246c1505d7117bc5a3", null ],
       [ "TASK_FLAG_MAX", "flag_8h.html#a46cf87370af170b282b31fcfb2309d8dacc036ce06bd8ec4a9db5d21880020b51", null ]
-    ] ]
+    ] ],
+    [ "xkstatic_assert", "flag_8h.html#a24b793d06ea407b87657ba2634e7010b", null ]
 ];

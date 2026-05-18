@@ -146,7 +146,7 @@ $(document).ready(function(){initNavTree('consts_8h_source.html',''); initResiza
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#  include &lt;opencg/c/api.h&gt;</span></div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor"># ifdef __cplusplus</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor"># if defined(__cplusplus) || (defined(__STDC_VERSION__) &amp;&amp; __STDC_VERSION__ &gt;= 201112L)</span></div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#  define xkstatic_assert(X) static_assert(X)</span></div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor"># else</span></div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="consts_8h.html#a7185ad36c9696600d2a335606a080528">   51</a></span><span class="preprocessor">#  define xkstatic_assert(X) _Static_assert(X, &quot;&quot;)</span></div>

@@ -92,5 +92,6 @@ var searchData=
   ['xkrt_5fteam_5fdriver_5fget_89',['xkrt_team_driver_get',['../xkrt_8h.html#a627b5e1b6f4de0eec5f46f51478c77c9',1,'xkrt.h']]],
   ['xkrt_5fteam_5fdriver_5fget_5fany_90',['xkrt_team_driver_get_any',['../xkrt_8h.html#a95e8117a5d7f08dc63708702db328792',1,'xkrt.h']]],
   ['xkrt_5fteam_5ftask_5fspawn_91',['xkrt_team_task_spawn',['../xkrt_8h.html#ad7b5c454d26e4cbee07ea0c8ac6d2a95',1,'xkrt.h']]],
-  ['xkrt_5fteam_5ftask_5fspawn_5fwith_5faccesses_92',['xkrt_team_task_spawn_with_accesses',['../xkrt_8h.html#a0d6c9465dd93282253aa7502b76d1679',1,'xkrt.h']]]
+  ['xkrt_5fteam_5ftask_5fspawn_5fwith_5faccesses_92',['xkrt_team_task_spawn_with_accesses',['../xkrt_8h.html#a0d6c9465dd93282253aa7502b76d1679',1,'xkrt.h']]],
+  ['xkstatic_5fassert_93',['xkstatic_assert',['../flag_8h.html#a24b793d06ea407b87657ba2634e7010b',1,'xkstatic_assert(TASK_FLAG_MAX&lt;=(1&lt;&lt; 8 *sizeof(xkrt_task_flag_bitfield_t)), &quot;&quot;):&#160;flag.h'],['../driver-type_8h.html#a85066a5f0103e97776b50b2b5005f313',1,'xkstatic_assert(XKRT_DRIVER_TYPE_MAX&lt;=sizeof(xkrt_driver_type_bitfield_t) *8, &quot;&quot;):&#160;driver-type.h']]]
 ];
