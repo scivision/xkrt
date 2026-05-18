@@ -47,6 +47,13 @@
 # include <stdint.h>
 # include <sys/types.h> // for gettid()
 
+# ifndef gettid
+#  include <sys/syscall.h>
+    pid_t gettid(void) {
+        return syscall(SYS_gettid);
+    }
+# endif
+
 extern spinlock_t LOGGER_PRINT_MTX;
 
 # ifndef LOGGER_FD
