@@ -139,7 +139,7 @@ find_package(Threads REQUIRED)
 target_link_libraries(${XKRT} PRIVATE Threads::Threads)
 
 # HWLOC
-find_package(hwloc REQUIRED)
+find_package(HWLOC REQUIRED)
 target_link_libraries(${XKRT} PRIVATE hwloc::hwloc)
 
 # Host driver

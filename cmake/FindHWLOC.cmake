@@ -1,38 +1,46 @@
-# Try to find HWLOC headers and libraries.
+# Try to find hwloc library and headers
+# Once done, this will define:
 #
-# Usage of this module as follows:
+#   HWLOC_FOUND          - TRUE if hwloc was found
+#   HWLOC_INCLUDE_DIRS   - include directories
+#   HWLOC_LIBRARIES      - libraries to link
 #
-#     find_package(HWLOC)
+# and an imported target:
+#   hwloc::hwloc
 #
-# Variables used by this module, they can change the default behaviour and need
-# to be set before calling find_package:
-#
-#  HWLOC_PREFIX         Set this variable to the root installation of
-#                      libpapi if the module has problems finding the
-#                      proper installation path.
-#
-# Variables defined by this module:
-#
-#  HWLOC_FOUND              System has HWLOC libraries and headers
-#  HWLOC_LIBRARIES          The HWLOC library
-#  HWLOC_INCLUDE_DIRS       The location of HWLOC headers
 
-find_library(
-    HWLOC_LIBRARIES NAMES libhwloc.so
+find_path(HWLOC_INCLUDE_DIR
+  NAMES hwloc.h
+  PATHS
+    /usr/include
+    /usr/local/include
+    /opt/local/include
 )
 
-find_path(
-    HWLOC_INCLUDE_DIRS NAMES hwloc.h
+find_library(HWLOC_LIBRARY
+  NAMES hwloc
+  PATHS
+    /usr/lib
+    /usr/lib64
+    /usr/local/lib
+    /usr/local/lib64
+    /opt/local/lib
 )
 
 include(FindPackageHandleStandardArgs)
-find_package_handle_standard_args(HWLOC DEFAULT_MSG
-    HWLOC_LIBRARIES
-    HWLOC_INCLUDE_DIRS
+find_package_handle_standard_args(HWLOC
+  REQUIRED_VARS HWLOC_LIBRARY HWLOC_INCLUDE_DIR
 )
 
-mark_as_advanced(
-    HWLOC_LIBRARIES
-    HWLOC_INCLUDE_DIRS
-)
+if(HWLOC_FOUND)
+  set(HWLOC_LIBRARIES ${HWLOC_LIBRARY})
+  set(HWLOC_INCLUDE_DIRS ${HWLOC_INCLUDE_DIR})
 
+  if(NOT TARGET hwloc::hwloc)
+    add_library(hwloc::hwloc UNKNOWN IMPORTED)
+    set_target_properties(hwloc::hwloc PROPERTIES
+      IMPORTED_LOCATION "${HWLOC_LIBRARY}"
+      INTERFACE_INCLUDE_DIRECTORIES "${HWLOC_INCLUDE_DIR}"
+    )
+  endif()
+endif()
