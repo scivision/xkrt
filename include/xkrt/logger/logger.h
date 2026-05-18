@@ -45,6 +45,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdint.h>
+# include <sys/types.h> // for gettid()
 
 extern spinlock_t LOGGER_PRINT_MTX;
 
